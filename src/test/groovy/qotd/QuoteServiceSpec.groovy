@@ -1,7 +1,7 @@
 package qotd
 
-import grails.gorm.transactions.Transactional
-
+// import grails.gorm.transactions.Transactional
+import grails.gorm.transactions.*
 
 import org.grails.orm.hibernate.HibernateDatastore
 import org.springframework.test.annotation.Rollback
@@ -14,8 +14,8 @@ import spock.lang.Shared
 @Transactional
 class QuoteServiceSpec extends Specification implements ServiceUnitTest<QuoteService>{
 
-    @Shared 
-    QuoteService quoteService
+    // @Shared 
+    // QuoteService quoteService
 
     @Shared 
     @AutoCleanup 
@@ -28,6 +28,11 @@ class QuoteServiceSpec extends Specification implements ServiceUnitTest<QuoteSer
         hibernateDatastore = new HibernateDatastore(Quote) 
         transactionManager = hibernateDatastore.getTransactionManager() 
         // quoteService = this.hibernateDatastore.getService(QuoteService)
+    }
+
+    @Transactional 
+    def setup() {
+        new Quote(firstName:"Fred").save()
     }
 
     @Rollback
