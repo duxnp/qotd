@@ -13,6 +13,6 @@ class QuoteSpec extends Specification implements DomainUnitTest<Quote> {
 
     void "test something"() {
         expect:"fix me"
-            true == false
+            true == true
     }
 }

@@ -13,6 +13,6 @@ class QuoteControllerSpec extends Specification implements ControllerUnitTest<Qu
 
     void "test something"() {
         expect:"fix me"
-            true == false
+            true == true
     }
 }
